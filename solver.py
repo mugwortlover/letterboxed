@@ -8,7 +8,7 @@ def contains_all_letters(word, letters):
 
 def solve(letters):
     #import wordlist
-    with open('/Users/pachieackerman/Documents/Personal Coding/letterboxed/working_wordlist.txt', 'r') as file:
+    with open('./working_wordlist.txt', 'r') as file:
         words = [word[:-1] for word in file.readlines()]
     
     (l1, l2, l3, l4) = letters
