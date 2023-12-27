@@ -90,7 +90,7 @@ def solve(letters):
 
     #display 2 word combos
     print('\nDouble Word Solutions:')
-    for combo in combos2[:5]:
+    for combo in combos2[:10]:
         print(combo[0], combo[1], f'(l: {len(combo[0] + combo[1])})')
 
     
