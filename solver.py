@@ -8,8 +8,8 @@ def contains_all_letters(word, letters):
 
 def solve(letters):
     #import wordlist
-    with open('./working_wordlist.txt', 'r') as file:
-        words = [word[:-1] for word in file.readlines()]
+    with open('./wordlists/working_wordlist2.txt', 'r') as file:
+        words = [word[:-1].lower() for word in file.readlines()]
     
     (l1, l2, l3, l4) = letters
     letters_all = l1 + l2 + l3 + l4
@@ -63,11 +63,12 @@ def solve(letters):
             if contains_all_letters(word1, letters_all):
                 combos1.append(word1)
 
+    '''
     print('Single Word Solutions:')
     if len(combos1) == 0:
         print('-- no single word solutions found -- ')
     else:
-        print(combos1[0])
+        print(combos1[0])'''
 
 
     #find 2 word combos
@@ -88,10 +89,7 @@ def solve(letters):
             combos2[i], combos2[min_index] = combos2[min_index], combos2[i]
 
 
-    #display 2 word combos
-    print('\nDouble Word Solutions:')
-    for combo in combos2[:10]:
-        print(combo[0], combo[1], f'(l: {len(combo[0] + combo[1])})')
+    return combos2[:10]
 
     
 
@@ -109,6 +107,6 @@ if __name__ == '__main__':
 
     URL = 'https://www.nytimes.com/puzzles/letter-boxed'
     sides = scrape(URL)
-    solve([list(tri.lower()) for tri in sides])
-    
-
+    sols = solve([list(tri.lower()) for tri in sides])
+    for combo in sols:
+        print(combo[0], combo[1], f'(l: {len(combo[0] + combo[1])})')
