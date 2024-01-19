@@ -7,7 +7,7 @@ def scrape(URL):
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    scripts = soup.find_all('script')[1].text[18:] #this is so scuffed but I literally can't be bothered
+    scripts = soup.find_all('script')[2].text[18:] #this is so scuffed but I literally can't be bothered
     test = json.loads(scripts)
 
     return test['sides']
